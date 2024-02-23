@@ -3,6 +3,7 @@ package scaler.Combinatorics;
 public class ComputenCrModm {
     public static void main(String[] args) {
         System.out.println("Hi");
+        System.out.println();
     }
 
     public int solve(int A, int B, int C) {
