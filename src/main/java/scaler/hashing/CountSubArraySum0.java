@@ -1,15 +1,14 @@
 package scaler.hashing;
 
 import java.util.HashMap;
-import java.util.HashSet;
     /*
     Logic: - Create a map of prefix sum (no need of array)
            - If a number is repeated that mean sum of elements between those two points is 0
            - So basically we have to select frequency C 2 for all such prefix sum that occur twice
+           - Or everytime same sum is identified add current frequency to count
 
-           => prefix sum 0 is special its every occurrence needs to be added
-           => So we do frequency C 2 like others and then add its frequency again.
-
+           => prefix sum 0 is special, since prefix sum would be 0 at the start
+           => So we start map with 1 zero;
     */
 public class CountSubArraySum0 {
 
@@ -22,39 +21,19 @@ public class CountSubArraySum0 {
     public static int solve(int[] A) {
 
         HashMap<Long, Integer> map = new HashMap<>();
-        //HashSet<Long> map = new HashSet<>();
         long sum = 0;
-        //map.put(sum,0);
+        map.put(sum,1);
         long count = 0;
 
         for(int a : A){
             sum += a;
+            if(map.containsKey(sum)){
+                count = (count%m + map.get(sum)%m)%m;
+            }
             map.put(sum, map.getOrDefault(sum, 0)+1);
         }
-        System.out.println(map);
 
-         for(long k : map.keySet()){
-             int v = map.get(k);
-             //if( v == 2) count++;
-             if( v > 1 || k == 0) count = (count%m + ncr(v,2)%m)%m;
-             if(k == 0) count += v;
-         }
         return (int)(count%m);
-    }
-
-    public static int ncr(int n, int r){
-        int[][] ncr = new int[n+1][r+1];
-        for(int i = 0; i<=n; i++){
-            for(int j = 0; j<=Math.min(i,r); j++){
-                if((j == 0) || (i == j)) {
-                    ncr[i][j] = 1;
-                }else{
-                    ncr[i][j] = (ncr[i-1][j-1]%m + ncr[i-1][j]%m)%m;
-                }
-            }
-        }
-
-        return ncr[n][r];
     }
 }
 //103362
