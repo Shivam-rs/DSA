@@ -3,16 +3,30 @@ package testing;
 import java.sql.Array;
 import java.sql.SQLOutput;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
+
+import static java.util.Collections.*;
+import static scaler.arithmatics.PrimeArrangements.fact;
+
 //Test Changes
 public class test {
     static void fun(int[] a){
         a[0] = 1;
     }
     public static void main(String[] args) {
+
+        //Set<Integer> vulnerableIPs = new TreeSet<>();
+        for (int i = 1; i <= 10; i++) {
+            int startIP = (i - 1) * 1000 + 1;
+            for (int j = 0; j < 10; j++) {
+                System.out.println(startIP + j);
+            }
+        }
+
+        int[] A = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
+        String ss = Arrays.toString(A);
+        String v = "001";
+        System.out.println(ss.equals(v));
 //        int[] A = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
 //        int n = A.length;
 //        int[] pfMax = new int[n];
@@ -27,7 +41,13 @@ public class test {
 //            // }
 //            pfMax[i] = Math.max(pfMax[i-1], A[i]);
 //        }
-        String s = "";
+        int a1 = 4 * 1000000000;
+
+        String s = "11011";
+        System.out.println((Integer.parseInt(s)));
+        int aa = 111011;
+        String aaa= String.valueOf(aa);
+        System.out.println(aaa.length());
         s += "sss";
         System.out.println(s);
         System.out.println((long)Math.pow(2,32));
@@ -43,6 +63,10 @@ public class test {
         temp.add(arr.clone());
 
         System.out.println(temp.contains(arr));
+        double c = Math.log(3);
+        double c10 = Math.log10(3);
+        System.out.println(c + " " +  c10);
+        System.out.println((Math.log(243)/c)%1 + " " + (Math.log10(243)/c10)%1);
 
 /*
         int[] sfMax = new int[n];
@@ -184,4 +208,16 @@ public class test {
 
         return true;
     }*/
+
+    public static int fact(int a){
+        int ans = 0;
+        int i;
+        for(i = 1; i*i<a; i++){
+            if(a%i == 0) ans+=2;
+        }
+
+        if(i*i == a) ans+=1;
+
+        return ans;
+    }
 }
