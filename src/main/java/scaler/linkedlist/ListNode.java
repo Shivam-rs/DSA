@@ -9,7 +9,7 @@ public class ListNode {
 
   }
 
-  ListNode(int x) {
+  public ListNode(int x) {
     val = x;
     next = null;
   }
