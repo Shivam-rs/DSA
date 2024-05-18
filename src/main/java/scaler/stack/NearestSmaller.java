@@ -16,10 +16,7 @@ public class NearestSmaller {
     int n = input.length;
     int[] nsl = new int[n];
 
-    st.push(input[0]);
-    nsl[0] = -1;
-
-    for(int i = 1; i<n; i++){
+    for(int i = 0; i<n; i++){
 
       while(!st.isEmpty() && input[i] <= st.peek()){
         st.pop();
