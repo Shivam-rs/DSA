@@ -6,7 +6,7 @@ import java.util.Stack;
 //Use stack to get smaller and greater on left and right
 public class SumMinMaxDiff {
   public static void main(String[] args) {
-    System.out.println(sum(new int[]{4, 7, 3, 8}));
+    System.out.println(sum(new int[]{4,-2,-3,4,1}));
   }
 
   private static int sum(int[] input){
@@ -59,7 +59,7 @@ public class SumMinMaxDiff {
 
     for(int i = n-1; i>=0; i--){
 
-      while(!st.isEmpty() && input[i] >= input[st.peek()]){
+      while(!st.isEmpty() && input[i] > input[st.peek()]){
         st.pop();
       }
 
@@ -107,7 +107,7 @@ public class SumMinMaxDiff {
 
     for(int i = n-1; i>=0; i--){
 
-      while(!st.isEmpty() && input[i] <= input[st.peek()]){
+      while(!st.isEmpty() && input[i] < input[st.peek()]){
         st.pop();
       }
 
