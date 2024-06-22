@@ -1,8 +1,10 @@
 package DailyChallenge;
 
+//Question : https://leetcode.com/problems/grumpy-bookstore-owner/description/
+
 public class GrumpyBookstoreOwner_1052 {
   public static void main(String[] args) {
-
+    System.out.println(maxSatisfied(new int[]{1,0,1,2,1,1,7,5}, new int[]{0,1,0,1,0,1,0,1}, 3));
   }
 
   public static int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
